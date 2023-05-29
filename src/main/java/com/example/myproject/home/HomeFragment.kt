@@ -27,6 +27,8 @@ class HomeFragment : Fragment() {
         return binding.root
         }
 
+
+
     override fun onStart() {
         super.onStart()
         binding.btnAlb.setOnClickListener{
