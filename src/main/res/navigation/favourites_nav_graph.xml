@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/favourites_nav_graph"
+    app:startDestination="@id/favouriteArtistsFragment">
+
+    <fragment
+        android:id="@+id/favouriteArtistsFragment"
+        android:name="com.example.myproject.favArtists.FavouriteArtistsFragment"
+        android:label="third_fragment_label"
+        tools:layout="@layout/fragment_favourite_artists" />
+</navigation>

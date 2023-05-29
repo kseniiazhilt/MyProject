@@ -14,4 +14,7 @@
     <string name="hello">Hello</string>
     <string name="_1">1</string>
     <string name="_2">2</string>
+    <string name="menu_title_favourites">Favourites</string>
+    <string name="menu_title_home">Home</string>
+    <string name="button">Button</string>
 </resources>

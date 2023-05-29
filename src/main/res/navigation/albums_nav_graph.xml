@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/albums_nav_graph"
+    app:startDestination="@id/AlbumsFragment">
+    <fragment
+        android:id="@+id/albumsFragment"
+        android:name="com.example.myproject.albums.AlbumsFragment"
+        android:label="fragment_albums"
+        tools:layout="@layout/fragment_albums" >
+        <action
+            android:id="@+id/action_albumsFragment_to_favouriteArtistsFragment2"
+            app:destination="@id/favouriteArtistsFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/favouriteArtistsFragment"
+        android:name="com.example.myproject.favArtists.FavouriteArtistsFragment"
+        android:label="fragment_favourite_artists"
+        tools:layout="@layout/fragment_favourite_artists" />
+</navigation>
+
