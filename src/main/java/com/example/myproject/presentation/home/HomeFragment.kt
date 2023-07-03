@@ -1,21 +1,16 @@
-package com.example.myproject.home
+package com.example.myproject.presentation.home
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.core.widget.doAfterTextChanged
+import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
-import androidx.navigation.findNavController
-import androidx.navigation.ui.AppBarConfiguration
-import com.example.myproject.MainActivity
-import com.example.myproject.R
 import com.example.myproject.databinding.FragmentHomeBinding
 import dagger.hilt.android.AndroidEntryPoint
-const val KEY = "KEY"
 
 @AndroidEntryPoint
 class HomeFragment : Fragment() {
-    private lateinit var appBarConfiguration: AppBarConfiguration
     lateinit var binding: FragmentHomeBinding
     private val viewModel: HomeViewModel by viewModels()
 
@@ -24,20 +19,24 @@ class HomeFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         binding = FragmentHomeBinding.inflate(inflater, container, false)
+        binding.lifecycleOwner = this
         return binding.root
-        }
-
-
-
-    override fun onStart() {
-        super.onStart()
-        binding.btnAlb.setOnClickListener{
-            (activity as MainActivity).findNavController(R.id.fragment_container).navigate(R.id.action_FirstFragment_to_AlbumsFragment)
-        }
-
     }
 
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        binding.apply {
+            editTextSearch.doAfterTextChanged {
+                viewModel.onSearchTextChanged(it.toString())
+            }
+            buttonSearch.setOnClickListener {
+                viewModel.onButtonSearchClicked()
+            }
+        }
     }
+}
+
+
 
 
 

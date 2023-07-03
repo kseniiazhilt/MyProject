@@ -3,11 +3,9 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/home_nav_graph"
-    app:startDestination="@id/HomeFragment">
-
-    <fragment
+    app:startDestination="@id/HomeFragment"><fragment
         android:id="@+id/HomeFragment"
-        android:name="com.example.myproject.home.HomeFragment"
+        android:name="com.example.myproject.presentation.home.HomeFragment"
         android:label="@string/first_fragment_label"
         tools:layout="@layout/fragment_home">
 
@@ -19,6 +17,7 @@
         android:id="@+id/AlbumsFragment"
         android:name="com.example.myproject.albums.AlbumsFragment"
         android:label="@string/second_fragment_label"
+        android:tag="AlbumsFragment"
         tools:layout="@layout/fragment_albums">
 
     </fragment>

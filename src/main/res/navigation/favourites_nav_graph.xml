@@ -7,7 +7,7 @@
 
     <fragment
         android:id="@+id/favouriteArtistsFragment"
-        android:name="com.example.myproject.favArtists.FavouriteArtistsFragment"
+        android:name="com.example.myproject.presentation.home.favArtists.FavouriteArtistsFragment"
         android:label="third_fragment_label"
         tools:layout="@layout/fragment_favourite_artists" />
 </navigation>

@@ -17,4 +17,7 @@
     <string name="menu_title_favourites">Favourites</string>
     <string name="menu_title_home">Home</string>
     <string name="button">Button</string>
+    <string name="artists_search">Поиск артистов</string>
+    <string name="search">Поиск</string>
+
 </resources>
