@@ -1,6 +1,7 @@
 package com.example.myproject.albums
 
 import android.os.Bundle
+import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -8,6 +9,7 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.myproject.MainActivity
 import com.example.myproject.databinding.FragmentAlbumsBinding
+import com.example.myproject.presentation.home.HomeFragment
 
 class AlbumsFragment : Fragment() {
     lateinit var binding: FragmentAlbumsBinding
@@ -22,13 +24,15 @@ class AlbumsFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        val artist = arguments?.get(HomeFragment.KEY_ARTIST)
+
         val mainActivity = activity as MainActivity//ссылка на МА
         val adapter = AlbumsAdapter(mainActivity::onFavouriteClicked)//шарим метод МА
         val layoutManager = LinearLayoutManager(requireContext())
         binding.recyclerAlbums.layoutManager = layoutManager
         binding.recyclerAlbums.adapter = adapter
-
         adapter.setList(mainActivity.allAlbums)
+
     }
 
     fun notifyAlbumsChanged(position: Int){
