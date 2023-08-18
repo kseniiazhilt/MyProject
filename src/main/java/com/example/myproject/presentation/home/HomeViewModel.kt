@@ -3,6 +3,7 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import com.example.myproject.albums.Album
 import com.example.myproject.data.ArtistObject
 import com.example.myproject.presentation.home.favArtists.Artist
 import dagger.hilt.android.lifecycle.HiltViewModel

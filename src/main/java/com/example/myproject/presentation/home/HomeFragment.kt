@@ -40,6 +40,7 @@ class HomeFragment : Fragment() {
             buttonSearch.setOnClickListener {
                 viewModel.onButtonSearchClicked()
             }
+
         }
 
         viewModel.artist.observe(viewLifecycleOwner){

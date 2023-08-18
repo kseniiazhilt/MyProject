@@ -16,7 +16,7 @@ private val moshi = Moshi.Builder()
     .add(KotlinJsonAdapterFactory())
     .build()
 
- val clientAlbum = OkHttpClient.Builder()
+val clientAlbum = OkHttpClient.Builder()
     .addInterceptor(HttpLoggingInterceptor().setLevel(HttpLoggingInterceptor.Level.BODY))
     .addInterceptor(HeaderInterceptor())
     .build()
@@ -29,8 +29,13 @@ private val retrofit = Retrofit.Builder()
 
 interface AlbumApi {
     @GET("release-group/")
-    fun getArtistAlbum(
+    suspend fun getArtistAlbum(
         @Query("query") query: String
-    )
+    ): GetAlbumsResponse
+}
 
+object AlbumsObject {
+    val retrofitService: AlbumApi by lazy {
+        retrofit.create(AlbumApi::class.java)
+    }
 }

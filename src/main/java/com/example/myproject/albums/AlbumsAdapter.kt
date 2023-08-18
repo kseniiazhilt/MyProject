@@ -1,17 +1,16 @@
 package com.example.myproject.albums
 
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.example.myproject.R
 import com.example.myproject.databinding.ItemAlbumBinding
 
-class AlbumsAdapter(val onFavouriteClicked: (position: Int) -> Unit) :
+class AlbumsAdapter(val onFavouriteClicked: (album: Album) -> Unit) :
     RecyclerView.Adapter<AlbumsAdapter.AlbumsViewHolder>() {
     private val albums = mutableListOf<Album>()
 
-    class AlbumsViewHolder(private val binding: ItemAlbumBinding, val onFavouriteClicked: (position: Int) -> Unit) :
+    class AlbumsViewHolder(private val binding: ItemAlbumBinding, val onFavouriteClicked: (album: Album) -> Unit) :
         RecyclerView.ViewHolder(binding.root) {
         fun bind(album: Album) {
             binding.textAlbumTitle.text = album.title
@@ -20,7 +19,7 @@ class AlbumsAdapter(val onFavouriteClicked: (position: Int) -> Unit) :
             binding.imageFavourite.setImageResource(
                 if (album.isFavourite) R.drawable.ic_fav_filled else R.drawable.ic_fav_outline)
             binding.imageFavourite.setOnClickListener{//вызов пошаренный метод МА
-                onFavouriteClicked.invoke(this.layoutPosition)
+                onFavouriteClicked.invoke(album)
             }
         }
     }
@@ -43,7 +42,9 @@ class AlbumsAdapter(val onFavouriteClicked: (position: Int) -> Unit) :
     }
 
     fun setList(albums: List<Album>) {
+        this.albums.clear()
         this.albums.addAll(albums)
+        notifyDataSetChanged()
     }
 
 }

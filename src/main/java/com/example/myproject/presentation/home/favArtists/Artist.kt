@@ -1,8 +1,6 @@
 package com.example.myproject.presentation.home.favArtists
 
 import android.os.Parcelable
-import androidx.lifecycle.LiveData
-import androidx.lifecycle.MutableLiveData
 import com.google.gson.annotations.SerializedName
 import kotlinx.parcelize.Parcelize
 
