@@ -12,7 +12,7 @@ data class Album(
     @SerializedName("primary-type")
     val type: String,
     @SerializedName("first-release-date")
-    val year: Int,
+    val year: String?,
     var isFavourite: Boolean = false
 ): Parcelable{
 

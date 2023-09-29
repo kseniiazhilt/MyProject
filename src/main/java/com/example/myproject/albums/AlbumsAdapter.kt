@@ -15,7 +15,7 @@ class AlbumsAdapter(val onFavouriteClicked: (album: Album) -> Unit) :
         fun bind(album: Album) {
             binding.textAlbumTitle.text = album.title
             binding.textAlbumType.text = album.type
-            binding.textAlbumYear.text = album.year.toString()
+            binding.textAlbumYear.text = album.year
             binding.imageFavourite.setImageResource(
                 if (album.isFavourite) R.drawable.ic_fav_filled else R.drawable.ic_fav_outline)
             binding.imageFavourite.setOnClickListener{//вызов пошаренный метод МА

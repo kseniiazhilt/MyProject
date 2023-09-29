@@ -1,20 +1,19 @@
 package com.example.myproject.data
 
+import com.google.gson.GsonBuilder
 import com.squareup.moshi.Moshi
 import com.squareup.moshi.kotlin.reflect.KotlinJsonAdapterFactory
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit
-import retrofit2.converter.moshi.MoshiConverterFactory
+import retrofit2.converter.gson.GsonConverterFactory
 import retrofit2.http.GET
 import retrofit2.http.Query
 
 private const val BASE_URL =
     "https://musicbrainz.org/ws/2/"
 
-private val moshi = Moshi.Builder()
-    .add(KotlinJsonAdapterFactory())
-    .build()
+private val gson = GsonBuilder().create()
 
 val clientAlbum = OkHttpClient.Builder()
     .addInterceptor(HttpLoggingInterceptor().setLevel(HttpLoggingInterceptor.Level.BODY))
@@ -22,7 +21,7 @@ val clientAlbum = OkHttpClient.Builder()
     .build()
 
 private val retrofit = Retrofit.Builder()
-    .addConverterFactory(MoshiConverterFactory.create(moshi))
+    .addConverterFactory(GsonConverterFactory.create(gson))
     .baseUrl(BASE_URL)
     .client(clientAlbum)
     .build()

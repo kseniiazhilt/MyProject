@@ -36,7 +36,6 @@ class AlbumsFragment : Fragment() {
         albumsViewModel.albums.observe(viewLifecycleOwner){
             adapter.setList(it)
         }
-
     }
 
     fun notifyAlbumsChanged(position: Int) {
@@ -45,7 +44,7 @@ class AlbumsFragment : Fragment() {
 
     private fun generateFakeValues(): List<Album>{
         val values = mutableListOf<Album>()
-        val album = Album(title = "Album Name", type = "Album type", year = 0)
+        val album = Album(title = "Album Name", type = "Album type", year = "")
         for (i in 0..100) {
             values.add(album)
         }
